@@ -9,6 +9,8 @@ struct RegisterFile {
     uint8_t d_reg[16]; // data registers V0-VF
     uint16_t* pc; // program counter
     uint16_t I; // index register
+    uint8_t delay_timer;
+    uint8_t sound_timer;
 };
 
 #define STACK_SIZE 48
