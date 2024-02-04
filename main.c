@@ -3,9 +3,14 @@
 #include <stdlib.h>
 #include "CHIP-8.h"
 
+#define MAX_PATH_LEN 4096
 
-int main() {
-    FILE* file = fopen("../test_opcode.ch8", "rb");
+int main(int argc, char** argv) {
+    if (argc != 2 || strlen(argv[1]) > MAX_PATH_LEN) {
+        printf("Usage:\n\ncrispychip <Path to CHIP-8 executable>\n\n");
+        exit(EXIT_FAILURE);
+    }
+    FILE* file = fopen(argv[1], "rb");
     if (file == NULL) {
         fprintf(stderr, "File not found.");
         exit(EXIT_FAILURE);
